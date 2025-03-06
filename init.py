@@ -1,4 +1,5 @@
 from project import Project
 
 project = Project()
-project.send()
+project.push()
+#project.init_project()

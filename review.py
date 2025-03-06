@@ -1,5 +1,4 @@
-from send import job
+from project import Project
 
-CHAT_ID = -1002374309134
-
-job(CHAT_ID=CHAT_ID, image_gen=True, text_gen=True, offset=1)
+project = Project()
+project.review(force_image_regen=True, force_text_regen=True)
