@@ -9,6 +9,7 @@ class Project(Journalist):
             first_post_date=datetime(2025, 1, 1),
             text_generator=OpenAITextGenerator(),
             topic_word_limit=100,
+            send_text_with_image=True,
             **kwargs)
 
     def _get_category_folder(self, task):
