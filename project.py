@@ -3,7 +3,7 @@ from simple_blogger.generators.OpenAIGenerator import OpenAITextGenerator
 from datetime import datetime
 from simple_blogger.senders.TelegramSender import TelegramSender
 from simple_blogger.senders.InstagramSender import InstagramSender
-
+from simple_blogger.senders.VkSender import VkSender
 
 class Project(Journalist):
     def __init__(self, **kwargs):
@@ -12,7 +12,9 @@ class Project(Journalist):
             text_generator=OpenAITextGenerator(),
             topic_word_limit=100,
             reviewer=TelegramSender(),
-            senders=[TelegramSender(channel_id=f"@place_of_interest"), InstagramSender(channel_token_name='PLACE_OF_INTEREST_THE_TOKEN')],
+            senders=[TelegramSender(channel_id=f"@place_of_interest"), 
+                     InstagramSender(channel_token_name='PLACE_OF_INTEREST_THE_TOKEN'),
+                     VkSender(group_id="229821893")],
             **kwargs)
 
     def _get_category_folder(self, task):
@@ -33,5 +35,3 @@ class Project(Journalist):
     
     def _system_prompt(self, task):
         return f"Ты - блогер с 1000000 миллионном подписчиков"
-    
-   
